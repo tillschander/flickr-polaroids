@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flickr</title>
+</head>
+<body>
+<a href="/login">Log in with Flickr account</a>
+
+{{#photo}}
+<img src="http://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_q.jpg" title="{{title}}" alt="{{title}}" />
+{{/photo}}
+</body>
+</html>
