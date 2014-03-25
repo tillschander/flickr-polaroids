@@ -1,0 +1,16 @@
+{
+	"name": "flickr-polaroids",
+	"version": "0.0.1",
+	"description": "A nice way to browse flickr",
+	"main" : "app.js",
+	"repository": {
+		"type" : "git",
+		"url" : "https://github.com/Braunbart/flickr-polaroids.git"
+	},
+	"dependencies" : {
+		"express" : "3.x",
+		"consolidate": "0.10.x",
+		"flickrnode": "0.1.x",
+		"mustache": "0.8.x"
+	}
+}
