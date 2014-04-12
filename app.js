@@ -1,14 +1,11 @@
-var express = require('express'), 
-	cons = require('consolidate'),
-	server = express(),
-	FlickrAPI = require('flickrnode').FlickrAPI,
-	apiKey = require('./api-key');
-
-var api_key = apiKey.api_key;
-var api_secret = apiKey.api_secret;
-
-
-var flickr = new FlickrAPI(api_key, api_secret);
+var express 	= require('express'), 
+	cons 		= require('consolidate'),
+	server 		= express(),
+	FlickrAPI 	= require('flickrnode').FlickrAPI,
+	apiKey 		= require('./api-key'),
+	api_key 	= apiKey.api_key,
+	api_secret 	= apiKey.api_secret,
+	flickr 		= new FlickrAPI(api_key, api_secret);
 
 server.engine('html', cons.mustache);
 server.set('view engine', 'html');
@@ -40,12 +37,12 @@ server.get("/auth", function(req, res) {
 
 server.get("/search/:term", function(req, res) {
 	flickr.photos.search({tags:req.params.term},  function(error, results) {
-    		if (!error) {
+		if (!error) {
 			res.render('search', results);
-        	} else {
-                	r = error;
-	        	res.end(JSON.stringify(r));
-        	}
+		} else {
+			r = error;
+			res.end(JSON.stringify(r));
+		}
 	});
 });
 
