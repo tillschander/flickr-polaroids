@@ -1,2 +1,4 @@
 node_modules
-api-key.js
+bin
+run
+api-key.js 
