@@ -10,6 +10,7 @@ var express 	= require('express'),
 server.engine('html', cons.mustache);
 server.set('view engine', 'html');
 server.set('views', __dirname + '/views');
+server.use(express.static(__dirname + '/public'));
 
 server.get("/login", function(req, res) {
 	//res.set('Content-Type', 'application/json');
@@ -36,7 +37,7 @@ server.get("/auth", function(req, res) {
 });
 
 server.get("/search/:term", function(req, res) {
-	flickr.photos.search({tags:req.params.term},  function(error, results) {
+	flickr.photos.search({tags:req.params.term, per_page: 10},  function(error, results) {
 		if (!error) {
 			res.render('search', results);
 		} else {

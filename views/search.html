@@ -2,14 +2,25 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Flickr</title>
+	<link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-<a href="/login">Log in with Flickr account</a>
+<button onclick="window.location='/login'">Log in with Flickr account</button>
+<button onclick="polaroids.prevPolaroid();">Prev</button>
+<button onclick="polaroids.nextPolaroid();">Next</button>
 
+<div id="map" class="map">
 {{#photo}}
-<img src="http://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_q.jpg" title="{{title}}" alt="{{title}}" />
+<img src="http://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_q.jpg" title="{{title}}" alt="{{title}}" class="polaroidImg" />
 {{/photo}}
+</div>
+
+
+<script>
+var polaroids = new Polaroids('polaroidImg');
+var map = new Map("map");
+</script>
 </body>
 </html>
